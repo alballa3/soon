@@ -15,6 +15,7 @@ export default function Newsletter() {
       body: JSON.stringify({ email }),
     });
     const json = await respond.json();
+    console.log(json)
     toast(json.message, {
       position: "bottom-right",
       autoClose: 5000,
