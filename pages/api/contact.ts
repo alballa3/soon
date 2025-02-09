@@ -32,7 +32,7 @@ export default async function handler(
 
   try {
     await rateLimiter.consume(userIp as string);
-  } catch (error) {
+  } catch (_error) {
     res
       .status(429)
       .json({ message: "Too many requests, please try again later." });
@@ -73,7 +73,7 @@ export default async function handler(
       .json({
         message: "Thank You For Appying. We Will Let you know when we start.",
       });
-  } catch (error) {
+  } catch (error:unknown) {
     return res.status(401).json(error);
   }
 }
